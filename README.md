@@ -2,7 +2,7 @@
 
 ## What it does
 
-PSXBIOS-KEY is a custom BIOS for the original PlayStation. It keeps the Sony startup animation, sound, and menus, and adds CD-R boot, disc-based Game ID, UniROM, cheats, in-game reset, and an SD card app launcher.
+PSXBIOS-KEY patches the original Sony 4.1 BIOS disc authentication and boot sequence to unlock CD-R boot, and adds disc-based Game ID, cheats, in-game reset, UniROM, and an MMCE SD app launcher.
 
 [Download the Windows patcher, cheats database, and app launcher](https://github.com/Hidden0-prj/PSXBIOS-KEY/releases/tag/v0.44)
 
@@ -15,7 +15,7 @@ Hold a shortcut while turning on the console.
 - **L1 · UniROM.** Opens UniROM 8.0.K.
 - **R1 · Fast Boot.** Starts the disc through the faster boot path.
 - **R2 · Quick Launch Apps.** Opens the app list on a compatible MMCE SD card. Press **Triangle** to refresh the list.
-- **In-game reset.** With IGR enabled, press **L2 + R2 + Select + X** to reboot the console.
+- **In-game reset.** With IGR enabled, press **L2 + R2 + Select + X** to reboot the console. This BIOS IGR hook supports games launched through its own boot path. Games launched through UniROM do not use it.
 
 Disc-based Game ID lets compatible memory cards select a save card for the game you boot. In the Sony Memory Card Manager, **L2/R2** switch MMCE cards and **L1/R1** switch channels.
 
@@ -33,8 +33,6 @@ Disc-based Game ID lets compatible memory cards select a save card for the game 
   <img src="images/mmce-detected.png" alt="Sony Memory Card Manager with the MMCE Detected banner" width="380">
 </p>
 
-*Captured in PCSX-Redux with BIOS 0.44. The Memory Card Manager screenshot uses a simulated MMCE connection.*
-
 ## Setup
 
 ### Flash adapter
@@ -42,6 +40,8 @@ Disc-based Game ID lets compatible memory cards select a save card for the game 
 This release targets a **512 KiB SST39VF040**. Electroanalog's PSX Flash BIOS project has 32-pin and 40-pin adapter designs, installation photos, and programmer examples. Match the adapter to your motherboard. For in-console flashing, the installed adapter must be wired for console-controlled writes. The upstream build that ties write enable high is read-only in the console. [Electroanalog's PSX-Flash-BIOS guide](https://github.com/Electroanalog/PSX-Flash-BIOS)
 
 [![Electroanalog's 40-pin and 32-pin PSX Flash BIOS adapters](https://raw.githubusercontent.com/Electroanalog/PSX-Flash-BIOS/main/img/psx_fb40-32.png)](https://github.com/Electroanalog/PSX-Flash-BIOS)
+
+Config saving and in-console flashing require a writable **WE#** connection. On the tested **SCPH-7501 / PU-22**, connect flash WE# to **CPU pin 100, /WR0**. Remove any direct WE-to-VCC bridge first. A **10 kΩ pull-up to 3.3 V** can remain. Verify the CPU pinout for your motherboard. [CPU pinout](https://psx-spx.consoledev.net/pinouts/#pinouts-cpu-pinouts)
 
 ### Patch your BIOS in Windows
 
@@ -60,28 +60,37 @@ The patcher creates a **BIOS BIN** for a chip programmer, a **self-contained PS1
 
 ### Install on a PlayStation
 
-1. **Starting with a blank chip?** Use the generated BIOS BIN with an external programmer such as a T48 and the appropriate TSOP32 adapter. Verify the readback before installing the chip.
-2. **Already have a working console with writable flash?** Launch the generated `.psexe` from UniROM/NOPS. If you already have Quick Launch Apps, give the flasher an `.exe` extension and put it in `Apps/`. If your console can already boot CD-Rs, you can also burn the flasher disc. Open the CUE in your disc-burning software and keep its matching BIN beside it.
-3. **On the PS1,** check that the flasher shows your region and chip ID **BF D7**. The 0.44 image CRC32 is **E06FCC1B** for USA or **D37B13E5** for PAL. Press **X** to write. Wait for **SUCCESS – all 524288 bytes verified**, then press **Start + Select** to reboot.
+- **Fresh installation.** Program the generated BIOS BIN onto the SST39VF040 with your external programmer, verify it, then install the chip and adapter.
+- **Adapter already installed.** With a working console and writable WE# wiring, load the generated self-contained PS1 flasher through UniROM/NOPS, or burn the generated CUE and boot the flasher disc. Keep its matching BIN beside the CUE when burning. In R2 Apps, give the flasher an `.exe` extension and put it in `Apps/`.
+- **Flash.** Check the region and chip ID **BF D7**, press **X**, and wait until all 524,288 bytes are verified. Press **Start + Select** to reboot.
 
 <img src="images/ps1-full-flasher.png" alt="PS1 full flasher at the Ready screen with chip ID, BIOS region and CRC32 visible" width="640">
 
-*PS1 flasher shown in PCSX-Redux with a simulated flash chip.*
-
 Full Flash writes the entire chip and resets BIOS settings. Keep power on until verification finishes. If the console can no longer boot after a failed write, use an external programmer to restore your backup. Version 0.44 is a test release. Physical console verification is pending.
 
-### Set up the MMCE SD card
+### Set up the MMCE : Memcardpro/sd2psx SD card
 
-Download the ZIPs you need from the [release page](https://github.com/Hidden0-prj/PSXBIOS-KEY/releases/tag/v0.44). Extract them to the root of the SD card, alongside any folders already on it. Use MMCE firmware with **PS1 MFS1** filesystem support.
+For now, the SD features require the latest compatible **sd2psXtd firmware with PS1 MFS1 filesystem support**. Check your device against the [firmware releases and installation guide](https://github.com/sd2psXtd/firmware/releases).
 
-- **Cheats.** Extract **PSXBIOS-KEY-Cheats-ALL.zip** so that `Cheats/PSXKEYINDEX.cht` and the other files in the ZIP land in `Cheats/`. Hold **Select** at boot, set **Cheats** to **SD2PSX**, and save. Hold **Start** at boot to open the manager, then choose **Detect Game** or **Game List**. A standard memory card can also be used for its own cheats through the **Memory Card** setting.
-- **Apps.** Extract **SD-Apps-Launcher-1.4.zip** so that `Apps/BOOT.EXE` is on the card. Copy your own PS1 `.exe` files into `Apps/` and hold **R2** at boot.
+1. Download **PSXBIOS-KEY-MMCE-SD-Setup.zip** from the [release page](https://github.com/Hidden0-prj/PSXBIOS-KEY/releases/tag/v0.44).
+2. Open **Copy to SD card of MMCE** and copy its **Apps** and **Cheats** folders to the root of the SD card. This installs `Apps/BOOT.EXE`, the full cheats database, and its game-list index.
+3. Hold **Select** at boot, set **Cheats** to **SD2PSX**, and save. Hold **Start** at boot for **Detect Game** or **Game List**. Select the codes you want before starting the game.
+4. Put your PS1 `.exe` apps in **Apps** and hold **R2** at boot. Press **Triangle** to refresh after adding files. RAM Tester, no$cash, and 240p are examples of apps you can add yourself.
+
+The individual cheats and launcher ZIPs are also available in the release. Cheat selections last for the current boot.
+
+### Apps, loaded cheats, and UniROM
+
+<img src="images/r2-apps.png" alt="R2 Quick Launch Apps" width="380">
+<img src="images/loaded-cheats.png" alt="Loaded Silent Hill cheats" width="380">
+<img src="images/unirom.png" alt="UniROM Basic 8.0.K" width="512">
 
 ## Credits
 
 
-- **xyz** for sd2psx , sd2psXtd Team and **bbsan2k**
+- **xyz** for [SD2PSX](https://github.com/sd2psx/firmware), the [sd2psXtd Team](https://github.com/sd2psXtd), and [bbsan2k](https://github.com/bbsan2k).
 - **jdfr228** for [PS1 Disc-Based Game ID](https://github.com/jdfr228/PS1-Disc-Based-Game-ID).
 - **spicyjpeg** and contributors for [ps1-bare-metal](https://github.com/spicyjpeg/ps1-bare-metal).
 - **Sickle**, **JonathanDotCel**, and the contributors to [UniROM](https://github.com/JonathanDotCel/unirom8_bootdisc_and_firmware_for_ps1).
 - **Electroanalog** for the [PSX Flash BIOS adapters and photos](https://github.com/Electroanalog/PSX-Flash-BIOS).
+
