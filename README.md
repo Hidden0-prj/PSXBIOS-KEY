@@ -6,6 +6,19 @@ PSXBIOS-KEY patches the original Sony 4.1 BIOS disc authentication and boot sequ
 
 [Download the Windows patcher, cheats database, and app launcher](https://github.com/Hidden0-prj/PSXBIOS-KEY/releases/tag/v0.44)
 
+## 0.51 test build
+
+0.51 adds **Menu Video** to BIOS Config. PAL starts at 50 Hz and USA starts at 60 Hz. Hold **Select** at boot, choose **Menu Video**, then press **X** to preview. Press **X** to confirm, **O** to revert, or wait 10 seconds. Press **Start** to save. Use the included **Apps/BOOT.EXE 1.5** for the SD app menu.
+
+0.51 is available for console testing. See the release notes for the IGR test result. [Download 0.51](https://github.com/Hidden0-prj/PSXBIOS-KEY/releases/tag/v0.51)
+
+<table>
+<tr>
+<td width="50%" align="center"><strong>PAL Config</strong><br><img src="images/bios-config-051.png" alt="PAL configuration with Menu Video" width="380" height="285"></td>
+<td width="50%" align="center"><strong>Video confirmation</strong><br><img src="images/menu-video-051.png" alt="Video mode confirmation and countdown" width="380" height="285"></td>
+</tr>
+</table>
+
 ## Features and controls
 
 Hold a shortcut while turning on the console.
@@ -108,3 +121,4 @@ Cheat selections last for the current boot. JP contains Japanese cheats. The pat
 ## Terms of use
 
 PSXBIOS-KEY is provided as-is, without warranty. Use it at your own responsibility. You are responsible for your hardware, BIOS backups, and any flashing or installation. Third-party components remain under their respective licenses.
+
