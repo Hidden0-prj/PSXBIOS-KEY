@@ -21,17 +21,49 @@ Disc-based Game ID lets compatible memory cards select a save card for the game 
 
 ### Screenshots
 
-<p>
-  <img src="images/bios-config.png" alt="BIOS Config screen" width="380">
-  <img src="images/cheats-manager.png" alt="Cheats Manager main menu" width="380">
-</p>
-<p>
-  <img src="images/fast-boot.png" alt="Fast Boot loading screen" width="380">
-  <img src="images/psx-bios-browser.png" alt="PlayStation BIOS Browser with Memory Card and CD Player" width="380">
-</p>
-<p>
-  <img src="images/mmce-detected.png" alt="Sony Memory Card Manager with the MMCE Detected banner" width="380">
-</p>
+**BIOS Config**
+
+<img src="images/bios-config.png" alt="BIOS Config" width="380" height="285">
+
+**Cheats Manager**
+
+<img src="images/cheats-manager.png" alt="Cheats Manager" width="380" height="285">
+
+**SD2PSX Games List**
+
+<img src="images/game-list.png" alt="SD2PSX Games List" width="380" height="285">
+
+**Select Cheats**
+
+<img src="images/loaded-cheats.png" alt="Select Cheats" width="380" height="285">
+
+**R2 Quick Launch Apps**
+
+<img src="images/r2-apps.png" alt="R2 Quick Launch Apps" width="380" height="285">
+
+**Fast Boot**
+
+<img src="images/fast-boot.png" alt="Fast Boot" width="380" height="285">
+
+**PlayStation BIOS Browser**
+
+<img src="images/psx-bios-browser.png" alt="PlayStation BIOS Browser" width="380" height="285">
+
+**MMCE Detected**
+
+<img src="images/mmce-detected.png" alt="MMCE Detected" width="380" height="285">
+
+**UniROM**
+
+<img src="images/unirom.png" alt="UniROM" width="380" height="285">
+
+**PS1 Full Flasher**
+
+<img src="images/ps1-full-flasher.png" alt="PS1 Full Flasher" width="380" height="285">
+
+**Windows Patcher**
+
+<img src="images/windows-patcher.png" alt="Windows Patcher" width="720">
 
 ## Setup
 
@@ -54,8 +86,6 @@ Use your own original Sony 4.1 BIOS dump. Each supported file is **524,288 bytes
 
 Open **PSXBIOS-KEY-Patcher.exe**, choose your BIOS file and an output folder, then click **Apply Patch**.
 
-<img src="images/windows-patcher.png" alt="Windows patcher with BIOS file and output folder fields and an Apply Patch button" width="720">
-
 The patcher creates a **BIOS BIN** for a chip programmer, a **self-contained PS1 flasher** (`.psexe`) with the BIOS already inside, and a **BIN/CUE flasher disc** with 50 MiB of padding.
 
 ### Install on a PlayStation
@@ -64,29 +94,20 @@ The patcher creates a **BIOS BIN** for a chip programmer, a **self-contained PS1
 - **Adapter already installed.** With a working console and writable WE# wiring, load the generated self-contained PS1 flasher through UniROM/NOPS, or burn the generated CUE and boot the flasher disc. Keep its matching BIN beside the CUE when burning. In R2 Apps, give the flasher an `.exe` extension and put it in `Apps/`.
 - **Flash.** Check the region and chip ID **BF D7**, press **X**, and wait until all 524,288 bytes are verified. Press **Start + Select** to reboot.
 
-<img src="images/ps1-full-flasher.png" alt="PS1 full flasher at the Ready screen with chip ID, BIOS region and CRC32 visible" width="640">
-
 Full Flash writes the entire chip and resets BIOS settings. Keep power on until verification finishes. If the console can no longer boot after a failed write, use an external programmer to restore your backup. Version 0.44 is a test release. Physical console verification is pending.
 
 ### Set up the MMCE : Memcardpro/sd2psx SD card
 
 For now, the SD features require the latest compatible **sd2psXtd firmware with PS1 MFS1 filesystem support**. Check your device against the [firmware releases and installation guide](https://github.com/sd2psXtd/firmware/releases).
 
-1. Download **PSXBIOS-KEY-MMCE-SD-Setup.zip** from the [release page](https://github.com/Hidden0-prj/PSXBIOS-KEY/releases/tag/v0.44).
-2. Open **Copy to SD card of MMCE** and copy its **Apps** and **Cheats** folders to the root of the SD card. This installs `Apps/BOOT.EXE`, the full cheats database, and its game-list index.
+1. Download and extract **PSXBIOS-KEY-0.44.zip** from the [release page](https://github.com/Hidden0-prj/PSXBIOS-KEY/releases/tag/v0.44).
+2. Copy **Apps** from **MMCE SD Setup / Copy to SD card of MMCE** to your SD card root. Keep **BOOT.EXE**. Open **Cheats / US**, **EU**, or **JP**, and copy that region's **Cheats** folder to the SD card root. Choose one region because each has its own Game List index.
 3. Hold **Select** at boot, set **Cheats** to **SD2PSX**, and save. Hold **Start** at boot for **Detect Game** or **Game List**. Select the codes you want before starting the game.
 4. Put your PS1 `.exe` apps in **Apps** and hold **R2** at boot. Press **Triangle** to refresh after adding files. RAM Tester, no$cash, and 240p are examples of apps you can add yourself.
 
-The individual cheats and launcher ZIPs are also available in the release. Cheat selections last for the current boot.
-
-### Apps, loaded cheats, and UniROM
-
-<img src="images/r2-apps.png" alt="R2 Quick Launch Apps" width="380">
-<img src="images/loaded-cheats.png" alt="Loaded Silent Hill cheats" width="380">
-<img src="images/unirom.png" alt="UniROM Basic 8.0.K" width="512">
+The folders include short READ ME notes. Cheat selections last for the current boot. JP contains Japanese cheats. The patcher accepts the supported USA and PAL BIOS dumps.
 
 ## Credits
-
 
 - **xyz** for [SD2PSX](https://github.com/sd2psx/firmware), the [sd2psXtd Team](https://github.com/sd2psXtd), and [bbsan2k](https://github.com/bbsan2k).
 - **jdfr228** for [PS1 Disc-Based Game ID](https://github.com/jdfr228/PS1-Disc-Based-Game-ID).
