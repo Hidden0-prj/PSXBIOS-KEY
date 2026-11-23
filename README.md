@@ -22,7 +22,7 @@ Hold a shortcut while turning on the console.
 
 ### MMCE features
 
-**Apps, SD cheats, and MMCE controls require the latest compatible [sd2psXtd firmware](https://github.com/sd2psXtd/firmware/releases).** It adds the memory-card commands and SD file access used by these features. Choose firmware that supports your device and PS1 MFS1.
+**Apps, SD cheats, and MMCE controls require the latest compatible [sd2psXtd firmware](https://github.com/sd2psXtd/firmware/releases).** (NOT RELEASED YET) It adds the memory-card commands and SD file access used by these features. Choose firmware that supports your device and PS1 MFS1.
 
 - **Game ID** selects a virtual save card for the disc you boot on compatible devices.
 - **L2 / R2** switch virtual cards in the Sony Memory Card Manager.
