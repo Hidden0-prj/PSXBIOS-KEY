@@ -45,7 +45,7 @@ Hold a shortcut while turning on the console.
 
 <table>
 <tr>
-<td width="50%" align="center"><strong>BIOS Config</strong><br><img src="images/bios-config.png" alt="BIOS Config" width="380" height="285"></td>
+<td width="50%" align="center"><strong>BIOS Config</strong><br><img src="images/bios-config-051.png" alt="BIOS Config" width="380" height="285"></td>
 <td width="50%" align="center"><strong>Cheats Manager</strong><br><img src="images/cheats-manager.png" alt="Cheats Manager" width="380" height="285"></td>
 </tr>
 <tr>
