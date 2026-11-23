@@ -10,56 +10,48 @@ PSXBIOS-KEY patches the original Sony 4.1 BIOS disc authentication and boot sequ
 
 Hold a shortcut while turning on the console.
 
-- **Select · BIOS Config.** Change the default boot option, choose the cheats source, or turn in-game reset on or off. Use **Save Settings** to keep your changes on the flash chip.
+- **Select · BIOS Config.** Change the default boot option, choose the cheats source, or turn in-game reset on or off. Use **Save Settings** to keep your changes. Saving requires the flash **WE# connection** described below.
 - **Start · Cheats Manager.** Use **Detect Game** to open cheats for the inserted disc, or **Game List** to browse. The in-game cheats menu is off by default and can be enabled in Config.
 - **L1 · UniROM.** Opens UniROM 8.0.K.
 - **R1 · Fast Boot.** Starts the disc through the faster boot path.
 - **R2 · Quick Launch Apps.** Opens the app list on a compatible MMCE SD card. Press **Triangle** to refresh the list.
 - **In-game reset.** With IGR enabled, press **L2 + R2 + Select + X** to reboot the console. This BIOS IGR hook supports games launched through its own boot path. Games launched through UniROM do not use it.
 
-Disc-based Game ID lets compatible memory cards select a save card for the game you boot. In the Sony Memory Card Manager, **L2/R2** switch MMCE cards and **L1/R1** switch channels.
+### MMCE features
+
+**Apps, SD cheats, and MMCE controls require the latest compatible [sd2psXtd firmware](https://github.com/sd2psXtd/firmware/releases).** It adds the memory-card commands and SD file access used by these features. Choose firmware that supports your device and PS1 MFS1.
+
+- **Game ID** selects a virtual save card for the disc you boot on compatible devices.
+- **L2 / R2** switch virtual cards in the Sony Memory Card Manager.
+- **L1 / R1** switch channels in the Sony Memory Card Manager.
+- **MMCE Detected** appears when a compatible card is found.
+- **SD cheats** loads the games database from the SD card.
+- **R2 Apps** launches PS1 executables from the SD card's Apps folder.
 
 ### Screenshots
 
-**BIOS Config**
-
-<img src="images/bios-config.png" alt="BIOS Config" width="380" height="285">
-
-**Cheats Manager**
-
-<img src="images/cheats-manager.png" alt="Cheats Manager" width="380" height="285">
-
-**SD2PSX Games List**
-
-<img src="images/game-list.png" alt="SD2PSX Games List" width="380" height="285">
-
-**Select Cheats**
-
-<img src="images/loaded-cheats.png" alt="Select Cheats" width="380" height="285">
-
-**R2 Quick Launch Apps**
-
-<img src="images/r2-apps.png" alt="R2 Quick Launch Apps" width="380" height="285">
-
-**Fast Boot**
-
-<img src="images/fast-boot.png" alt="Fast Boot" width="380" height="285">
-
-**PlayStation BIOS Browser**
-
-<img src="images/psx-bios-browser.png" alt="PlayStation BIOS Browser" width="380" height="285">
-
-**MMCE Detected**
-
-<img src="images/mmce-detected.png" alt="MMCE Detected" width="380" height="285">
-
-**UniROM**
-
-<img src="images/unirom.png" alt="UniROM" width="380" height="285">
-
-**PS1 Full Flasher**
-
-<img src="images/ps1-full-flasher.png" alt="PS1 Full Flasher" width="380" height="285">
+<table>
+<tr>
+<td width="50%" align="center"><strong>BIOS Config</strong><br><img src="images/bios-config.png" alt="BIOS Config" width="380" height="285"></td>
+<td width="50%" align="center"><strong>Cheats Manager</strong><br><img src="images/cheats-manager.png" alt="Cheats Manager" width="380" height="285"></td>
+</tr>
+<tr>
+<td width="50%" align="center"><strong>SD2PSX Games List</strong><br><img src="images/game-list.png" alt="SD2PSX Games List" width="380" height="285"></td>
+<td width="50%" align="center"><strong>Select Cheats</strong><br><img src="images/loaded-cheats.png" alt="Select Cheats" width="380" height="285"></td>
+</tr>
+<tr>
+<td width="50%" align="center"><strong>R2 Quick Launch Apps</strong><br><img src="images/r2-apps.png" alt="R2 Quick Launch Apps" width="380" height="285"></td>
+<td width="50%" align="center"><strong>Fast Boot</strong><br><img src="images/fast-boot.png" alt="Fast Boot" width="380" height="285"></td>
+</tr>
+<tr>
+<td width="50%" align="center"><strong>PlayStation BIOS Browser</strong><br><img src="images/psx-bios-browser.png" alt="PlayStation BIOS Browser" width="380" height="285"></td>
+<td width="50%" align="center"><strong>MMCE Detected</strong><br><img src="images/mmce-detected.png" alt="MMCE Detected" width="380" height="285"></td>
+</tr>
+<tr>
+<td width="50%" align="center"><strong>UniROM</strong><br><img src="images/unirom.png" alt="UniROM" width="380" height="285"></td>
+<td width="50%" align="center"><strong>PS1 Full Flasher</strong><br><img src="images/ps1-full-flasher.png" alt="PS1 Full Flasher" width="380" height="285"></td>
+</tr>
+</table>
 
 **Windows Patcher**
 
@@ -77,7 +69,7 @@ Config saving and in-console flashing require a writable **WE#** connection. On 
 
 ### Patch your BIOS in Windows
 
-Use your own original Sony 4.1 BIOS dump. Each supported file is **524,288 bytes**. The filenames below are for identification. The patcher checks the actual file and rejects other dumps.
+Use your own original Sony 4.1 BIOS for one of these models.
 
 - **USA / NTSC-U/C** · SCPH-7001 / SCPH-7501 family · CRC32 **502224B6**  
   `Sony PlayStation SCPH-7001 BIOS v4.1 (1997-12-16)(Sony)(US).bin`
@@ -86,15 +78,13 @@ Use your own original Sony 4.1 BIOS dump. Each supported file is **524,288 bytes
 
 Open **PSXBIOS-KEY-Patcher.exe**, choose your BIOS file and an output folder, then click **Apply Patch**.
 
-The patcher creates a **BIOS BIN** for a chip programmer, a **self-contained PS1 flasher** (`.psexe`) with the BIOS already inside, and a **BIN/CUE flasher disc** with 50 MiB of padding.
+It creates your patched BIOS, a PS1 flasher, and a flasher disc image.
 
 ### Install on a PlayStation
 
 - **Fresh installation.** Program the generated BIOS BIN onto the SST39VF040 with your external programmer, verify it, then install the chip and adapter.
-- **Adapter already installed.** With a working console and writable WE# wiring, load the generated self-contained PS1 flasher through UniROM/NOPS, or burn the generated CUE and boot the flasher disc. Keep its matching BIN beside the CUE when burning. In R2 Apps, give the flasher an `.exe` extension and put it in `Apps/`.
-- **Flash.** Check the region and chip ID **BF D7**, press **X**, and wait until all 524,288 bytes are verified. Press **Start + Select** to reboot.
-
-Full Flash writes the entire chip and resets BIOS settings. Keep power on until verification finishes. If the console can no longer boot after a failed write, use an external programmer to restore your backup. Version 0.44 is a test release. Physical console verification is pending.
+- **Adapter already installed.** With a working console and writable WE# wiring, load the generated self-contained PS1 flasher through UniROM/NOPS, or burn the generated CUE and boot the flasher disc. Keep its matching BIN beside the CUE when burning.
+- **Flash.** Press **X**, wait for completion, then press **Start + Select** to reboot.
 
 ### Set up the MMCE : Memcardpro/sd2psx SD card
 
@@ -114,4 +104,5 @@ The folders include short READ ME notes. Cheat selections last for the current b
 - **spicyjpeg** and contributors for [ps1-bare-metal](https://github.com/spicyjpeg/ps1-bare-metal).
 - **Sickle**, **JonathanDotCel**, and the contributors to [UniROM](https://github.com/JonathanDotCel/unirom8_bootdisc_and_firmware_for_ps1).
 - **Electroanalog** for the [PSX Flash BIOS adapters and photos](https://github.com/Electroanalog/PSX-Flash-BIOS).
+
 
