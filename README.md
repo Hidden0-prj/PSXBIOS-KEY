@@ -5,7 +5,9 @@
 PSXBIOS-KEY patches the original Sony 4.1 BIOS disc authentication and boot sequence to unlock CD-R boot, and adds disc-based Game ID, cheats, in-game reset, UniROM, and an MMCE SD app launcher.
 
 
-0.51 is available for console testing. See the release notes for the IGR test result. Download Coming Soon !
+0.51 is available for console testing. See the release notes for the IGR test result. 
+
+**Download Coming Soon !**
 
 ## Features and controls
 
