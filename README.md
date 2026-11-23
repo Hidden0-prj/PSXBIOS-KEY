@@ -79,8 +79,9 @@ Download the ZIPs you need from the [release page](https://github.com/Hidden0-pr
 
 ## Credits
 
+
+- **xyz** for sd2psx , sd2psXtd Team and **bbsan2k**
 - **jdfr228** for [PS1 Disc-Based Game ID](https://github.com/jdfr228/PS1-Disc-Based-Game-ID).
 - **spicyjpeg** and contributors for [ps1-bare-metal](https://github.com/spicyjpeg/ps1-bare-metal).
 - **Sickle**, **JonathanDotCel**, and the contributors to [UniROM](https://github.com/JonathanDotCel/unirom8_bootdisc_and_firmware_for_ps1).
 - **Electroanalog** for the [PSX Flash BIOS adapters and photos](https://github.com/Electroanalog/PSX-Flash-BIOS).
-- The [PS1 MMCE contributors](https://github.com/sd2psXtd/firmware) and the authors of [MKPSXISO](https://github.com/Lameguy64/mkpsxiso), [xdelta](https://github.com/jmacd/xdelta), and [7-Zip](https://www.7-zip.org/).
