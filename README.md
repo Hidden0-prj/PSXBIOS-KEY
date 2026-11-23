@@ -19,6 +19,22 @@ Hold a shortcut while turning on the console.
 
 Disc-based Game ID lets compatible memory cards select a save card for the game you boot. In the Sony Memory Card Manager, **L2/R2** switch MMCE cards and **L1/R1** switch channels.
 
+### Screenshots
+
+<p>
+  <img src="images/bios-config.png" alt="BIOS Config screen" width="380">
+  <img src="images/cheats-manager.png" alt="Cheats Manager main menu" width="380">
+</p>
+<p>
+  <img src="images/fast-boot.png" alt="Fast Boot loading screen" width="380">
+  <img src="images/psx-bios-browser.png" alt="PlayStation BIOS Browser with Memory Card and CD Player" width="380">
+</p>
+<p>
+  <img src="images/mmce-detected.png" alt="Sony Memory Card Manager with the MMCE Detected banner" width="380">
+</p>
+
+*Captured in PCSX-Redux with BIOS 0.44. The Memory Card Manager screenshot uses a simulated MMCE connection.*
+
 ## Setup
 
 ### Flash adapter
