@@ -17,7 +17,7 @@ Hold a shortcut while turning on the console.
 - **L1 · UniROM.** Opens UniROM 8.0.K.
 - **R1 · Fast Boot.** Starts the disc through the faster boot path.
 - **R2 · Quick Launch Apps.** Opens the app list on a compatible MMCE SD card. Press **Triangle** to refresh the list.
-- **In-game reset.** With IGR enabled, press **L2 + R2 + Select + X** to reboot the console. IGR is not supported in UNIROM.
+- **In-game reset.** With IGR enabled, press **L2 + R2 + Select + X** to reboot the console. **IGR is not supported in UNIROM**.
 
 ### MMCE features
 
