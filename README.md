@@ -91,11 +91,11 @@ It creates your patched BIOS, a PS1 flasher, and a flasher disc image.
 For now, the SD features require the latest compatible **sd2psXtd firmware with PS1 MFS1 filesystem support**. Check your device against the [firmware releases and installation guide](https://github.com/sd2psXtd/firmware/releases).
 
 1. Download and extract **PSXBIOS-KEY-0.44.zip** from the [release page](https://github.com/Hidden0-prj/PSXBIOS-KEY/releases/tag/v0.44).
-2. Copy **Apps** from **MMCE SD Setup / Copy to SD card of MMCE** to your SD card root. Keep **BOOT.EXE**. Open **Cheats / US**, **EU**, or **JP**, and copy that region's **Cheats** folder to the SD card root. Choose one region because each has its own Game List index.
+2. Copy **Apps** and **Cheats** from **MMCE SD Setup / Copy to SD card of MMCE** to your SD card root. Keep **Apps/BOOT.EXE**. Place your `.cht` files in **Cheats**, or copy the contents of **Cheats / US / Cheats**, **EU / Cheats**, or **JP / Cheats** from the download into it. Choose one database region.
 3. Hold **Select** at boot, set **Cheats** to **SD2PSX**, and save. Hold **Start** at boot for **Detect Game** or **Game List**. Select the codes you want before starting the game.
 4. Put your PS1 `.exe` apps in **Apps** and hold **R2** at boot. Press **Triangle** to refresh after adding files. RAM Tester, no$cash, and 240p are examples of apps you can add yourself.
 
-The folders include short READ ME notes. Cheat selections last for the current boot. JP contains Japanese cheats. The patcher accepts the supported USA and PAL BIOS dumps.
+Cheat selections last for the current boot. JP contains Japanese cheats. The patcher supports the listed USA and PAL BIOS dumps.
 
 ## Credits
 
@@ -105,4 +105,6 @@ The folders include short READ ME notes. Cheat selections last for the current b
 - **Sickle**, **JonathanDotCel**, and the contributors to [UniROM](https://github.com/JonathanDotCel/unirom8_bootdisc_and_firmware_for_ps1).
 - **Electroanalog** for the [PSX Flash BIOS adapters and photos](https://github.com/Electroanalog/PSX-Flash-BIOS).
 
+## Terms of use
 
+PSXBIOS-KEY is provided as-is, without warranty. Use it at your own responsibility. You are responsible for your hardware, BIOS backups, and any flashing or installation. Third-party components remain under their respective licenses.
