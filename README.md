@@ -17,7 +17,7 @@ Hold a shortcut while turning on the console.
 - **Start · Cheats Manager.** Use **Detect Game** to open cheats for the inserted disc, or **Game List** to browse. The in-game cheats menu is off by default and can be enabled in Config.
 - **L1 · UniROM.** Opens UniROM 8.0.K.
 - **R1 · Fast Boot.** Starts the disc through the faster boot path.
-- **R2 · Quick Launch Apps.** Opens the app list on a compatible MMCE SD card. Press **Triangle** to refresh the list.
+- **R2 · Quick Launch Apps.** Opens the app list on a compatible MMCE SD card.
 - **In-game reset.** With IGR enabled, press **L2 + R2 + Select + X** to reboot the console. **IGR is not supported in UNIROM**.
 
 ### MMCE features
